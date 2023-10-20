@@ -1,17 +1,21 @@
 from suds.client import Client
 
 # Saisie des informations du client
-nom_client = input("Nom du Client: ")
+nom = input("Nom : ")
+prenom = input("prénom: ")
 adresse = input("Adresse: ")
 email = input("Email: ")
-# Créez un client Suds pour le service web
+montant = input("Montant: ")
+nombre_piece= input("nombre de piece: ")
+superfecie = input("superficie : ")
+
+
 recevoirDemandeService_client = Client('http://localhost:8000/ReceptionDemandeService?wsdl')
 
 
-# Appelez l'opération recevoir_demande avec les données du client
 result = recevoirDemandeService_client.service.recevoir_demande(
-    nom_client, adresse, email
+    nom, prenom, adresse, email, montant,nombre_piece, superfecie
 )
 
-# Affichez la réponse du service
+
 print(result)
