@@ -1,0 +1,38 @@
+[
+    {
+    "Adresse": "78",
+    "nombre_piece":2,
+    "prix": 700
+    },
+
+    {
+    "Adresse": "78",
+    "nombre_piece":3,
+    "prix": 1000
+    },
+
+    {
+        "Adresse": "75",
+        "nombre_piece":2,
+        "prix": 900
+    },
+
+    {
+        "Adresse": "75",
+        "nombre_piece":3,
+        "prix": 1200
+    },
+
+    {
+        "Adresse": "92",
+        "nombre_piece":2,
+        "prix": 800
+    },
+
+    {
+        "Adresse": "92",
+        "nombre_piece":3,
+        "prix": 1100
+    } 
+
+]
