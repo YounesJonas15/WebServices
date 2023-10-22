@@ -8,9 +8,30 @@ from suds.client import Client
 
 
 class ServicePropriete(ServiceBase):
-    @rpc( Unicode, Unicode, _returns=float)
-    def proprieteClient(ctx, nb_piece, superficie):
-        return 50
+    @rpc( Unicode, Unicode,Unicode,float, _returns=bool)
+    def proprieteClient(ctx, nb_piece, superficie, adresse,montant):
+        try:
+            with open("ventes_recentes.json", "r") as f:
+                data = json.load(f)
+                print(data)
+                print(nb_piece,adresse,montant)
+            if data:
+                for vente in data:
+                    if vente["Adresse"] == adresse and vente["nombre_piece"] == int(nb_piece):
+                        prix = float(vente.get("prix"))
+                        print(prix)
+                        if montant <= prix :
+                            return True
+                        elif montant > prix :
+                            return False
+                    else :
+                        print("aucun match")    
+
+            else:
+                return "Aucune ventes recentes à proximité de cette adresse"
+            
+        except (json.JSONDecodeError, FileNotFoundError) as e:
+            return f"Erreur lors de la lecture du fichier : {str(e)}"
     
 application = Application([ServicePropriete],
                           tns='spyne.examples.propriete',
