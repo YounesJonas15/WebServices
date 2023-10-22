@@ -1,335 +1,178 @@
 [
     {
-        "Nom du Client": "ttt",
-        "Prenom du Client": "yt",
-        "Adresse": "yt",
-        "Email": "ty",
-        "Montant": "t",
-        "Nombre de pieces": "y",
-        "Superficie": "458"
-    },
-    {
-        "Nom du Client": "y",
-        "Prenom du Client": "y",
-        "Adresse": "y",
-        "Email": "y",
-        "Montant": "y",
-        "Nombre de pieces": "y",
-        "Superficie": "y"
-    },
-    {
-        "Nom du Client": "f",
-        "Prenom du Client": "f",
-        "Adresse": "f",
-        "Email": "f",
-        "Montant": "f",
-        "Nombre de pieces": "f",
-        "Superficie": "f"
-    },
-    {
-        "Nom du Client": "riri",
-        "Prenom du Client": "rr",
-        "Adresse": "rre",
-        "Email": "",
-        "Montant": "rfde",
-        "Nombre de pieces": "de",
-        "Superficie": "de"
-    },
-    {
-        "Nom du Client": "mp",
-        "Prenom du Client": "pm",
-        "Adresse": "mm",
-        "Email": "pp",
-        "Montant": "pl",
-        "Nombre de pieces": "lp",
-        "Superficie": "m;l"
-    },
-    {
-        "Nom du Client": "de",
-        "Prenom du Client": "er",
-        "Adresse": "er",
-        "Email": "f",
-        "Montant": "ef",
-        "Nombre de pieces": "fe",
-        "Superficie": "fe"
-    },
-    {
-        "Nom du Client": "a",
-        "Prenom du Client": "a",
-        "Adresse": "a",
-        "Email": "a",
-        "Montant": "a",
-        "Nombre de pieces": "a",
-        "Superficie": ""
-    },
-    {
-        "Nom du Client": "n",
-        "Prenom du Client": "n",
-        "Adresse": "n",
-        "Email": "n",
-        "Montant": "n",
-        "Nombre de pieces": "n",
-        "Superficie": "n"
-    },
-    {
-        "Nom du Client": "y",
-        "Prenom du Client": "y",
-        "Adresse": "y",
-        "Email": "y",
-        "Montant": "y",
-        "Nombre de pieces": "y",
-        "Superficie": "y"
-    },
-    {
-        "Nom du Client": "zz",
-        "Prenom du Client": "aa",
-        "Adresse": "gg",
-        "Email": "ff",
-        "Montant": "32",
-        "Nombre de pieces": "2",
-        "Superficie": "23"
-    },
-    {
-        "Nom du Client": "maziz",
-        "Prenom du Client": "yassine",
-        "Adresse": "25 rue mm",
-        "Email": "ma@gmail",
+        "Nom du Client": "yacine",
+        "Prenom du Client": "M",
+        "Adresse": "dqsd",
+        "Email": "ea",
         "Montant": "200",
-        "Nombre de pieces": "2",
-        "Superficie": "23"
-    },
-    {
-        "Nom du Client": "kakashi",
-        "Prenom du Client": "hatake",
-        "Adresse": "5 rue konoha",
-        "Email": "kh@gmail.com",
-        "Montant": "2000",
-        "Nombre de pieces": "5",
-        "Superficie": "200"
-    },
-    {
-        "Nom du Client": "uzumaki",
-        "Prenom du Client": "naruto",
-        "Adresse": "konoha",
-        "Email": "un",
-        "Montant": "100",
-        "Nombre de pieces": "5",
-        "Superficie": "2"
-    },
-    {
-        "Nom du Client": "cafard",
-        "Prenom du Client": "sasuke",
-        "Adresse": "4 rue konoha",
-        "Email": "cafardnojutsu",
-        "Montant": "100",
-        "Nombre de pieces": "5",
-        "Superficie": "3"
-    },
-    {
-        "Nom du Client": "kakashi",
-        "Prenom du Client": "hatak",
-        "Adresse": "konoha",
-        "Email": "dkskd",
-        "Montant": "200",
-        "Nombre de pieces": "2",
-        "Superficie": "23"
-    },
-    {
-        "Nom du Client": "new",
-        "Prenom du Client": "client",
-        "Adresse": "dsdsq",
-        "Email": "fsqdfq",
-        "Montant": "200",
-        "Nombre de pieces": "23",
-        "Superficie": "2"
-    },
-    {
-        "Nom du Client": "hhd",
-        "Prenom du Client": "dsd",
-        "Adresse": "dza",
-        "Email": "qsdq",
-        "Montant": "200",
-        "Nombre de pieces": "23",
-        "Superficie": "25"
-    },
-    {
-        "Nom du Client": "Ichigo",
-        "Prenom du Client": "nf",
-        "Adresse": "adresse",
-        "Email": "emmmm",
-        "Montant": "204553",
         "Nombre de pieces": "3",
-        "Superficie": "25"
+        "Superficie": "23",
+        "Revenu": "",
+        "Depenses": ""
     },
     {
-        "Nom du Client": "jsaispas",
-        "Prenom du Client": "jsaipasaussi",
-        "Adresse": "\u00e7a aussi",
-        "Email": "idem",
-        "Montant": "506",
-        "Nombre de pieces": "4",
-        "Superficie": "23"
-    },
-    {
-        "Nom du Client": "nvo",
-        "Prenom du Client": "clien",
-        "Adresse": "jsp",
-        "Email": "mmmail",
-        "Montant": "254",
-        "Nombre de pieces": "4",
-        "Superficie": "23"
-    },
-    {
-        "Nom du Client": "new",
-        "Prenom du Client": "cli",
-        "Adresse": "dsd",
-        "Email": "kfe",
-        "Montant": "20",
-        "Nombre de pieces": "2",
-        "Superficie": "35"
-    },
-    {
-        "Nom du Client": "hey",
-        "Prenom du Client": "frero",
-        "Adresse": "cva",
-        "Email": "trkl",
-        "Montant": "20",
-        "Nombre de pieces": "56",
-        "Superficie": "25"
-    },
-    {
-        "Nom du Client": "Tsunade",
-        "Prenom du Client": "jsp",
-        "Adresse": "knoha mekla",
-        "Email": "dsdsd@gla",
-        "Montant": "25",
-        "Nombre de pieces": "3",
-        "Superficie": "23"
-    },
-    {
-        "Nom du Client": "nvo",
-        "Prenom du Client": "cl",
-        "Adresse": "ds",
-        "Email": "qsf",
-        "Montant": "25",
-        "Nombre de pieces": "26",
-        "Superficie": "3"
-    },
-    {
-        "Nom du Client": "ds",
-        "Prenom du Client": "dsq",
-        "Adresse": "sdq",
-        "Email": "sdq",
-        "Montant": "5ds",
-        "Nombre de pieces": "sdq7",
-        "Superficie": "sd"
-    },
-    {
-        "Nom du Client": "ds",
-        "Prenom du Client": "fe",
-        "Adresse": "re",
-        "Email": "z",
-        "Montant": "za",
-        "Nombre de pieces": "z",
-        "Superficie": "a"
-    },
-    {
-        "Nom du Client": "ds",
-        "Prenom du Client": "z",
-        "Adresse": "a",
-        "Email": "r",
-        "Montant": "e",
-        "Nombre de pieces": "",
-        "Superficie": "z"
-    },
-    {
-        "Nom du Client": "ds",
+        "Nom du Client": "dsq",
         "Prenom du Client": "za",
-        "Adresse": "e",
-        "Email": "z",
-        "Montant": "az",
-        "Nombre de pieces": "ze",
-        "Superficie": "a"
+        "Adresse": "sdq",
+        "Email": "zea",
+        "Montant": "dsq",
+        "Nombre de pieces": "sdq",
+        "Superficie": "sdq",
+        "Revenu": "sdq",
+        "Depenses": "sdq"
     },
     {
-        "Nom du Client": "nvo",
-        "Prenom du Client": "cl",
-        "Adresse": "ds",
-        "Email": "ze",
-        "Montant": "az",
-        "Nombre de pieces": "sd",
-        "Superficie": "qs"
+        "Nom du Client": "damn",
+        "Prenom du Client": "ds",
+        "Adresse": "azeaz",
+        "Email": "lkdqsld",
+        "Montant": "200",
+        "Nombre de pieces": "5",
+        "Superficie": "23",
+        "Revenu": "2000",
+        "Depenses": "1500"
+    },
+    {
+        "Nom du Client": "dsq",
+        "Prenom du Client": "eaz",
+        "Adresse": "rez",
+        "Email": "zer",
+        "Montant": "20000",
+        "Nombre de pieces": "2",
+        "Superficie": "23",
+        "Revenu": "1500",
+        "Depenses": "700"
     },
     {
         "Nom du Client": "Yacine",
-        "Prenom du Client": "z",
-        "Adresse": "d",
-        "Email": "qsd",
-        "Montant": "200",
-        "Nombre de pieces": "23",
-        "Superficie": "26"
+        "Prenom du Client": "dsds",
+        "Adresse": "zea",
+        "Email": "dsq",
+        "Montant": "20000",
+        "Nombre de pieces": "2",
+        "Superficie": "23",
+        "Revenu": "2000",
+        "Depenses": "1200"
     },
     {
-        "Nom du Client": "slt",
-        "Prenom du Client": "cv",
-        "Adresse": "frero",
-        "Email": "dsds",
-        "Montant": "12",
-        "Nombre de pieces": "3",
-        "Superficie": "26"
-    },
-    {
-        "Nom du Client": "ds",
-        "Prenom du Client": "fs",
-        "Adresse": "ea",
-        "Email": "re",
-        "Montant": "fd",
-        "Nombre de pieces": "sd",
-        "Superficie": "sd"
-    },
-    {
-        "Nom du Client": "ds",
-        "Prenom du Client": "az",
-        "Adresse": "eaz",
-        "Email": "aze",
-        "Montant": "z",
-        "Nombre de pieces": "aeaz",
-        "Superficie": "ez"
-    },
-    {
-        "Nom du Client": "dsqz",
-        "Prenom du Client": "aze",
+        "Nom du Client": "zeae",
+        "Prenom du Client": "rez",
         "Adresse": "zae",
-        "Email": "az",
-        "Montant": "ds",
-        "Nombre de pieces": "s",
-        "Superficie": "qssqd"
+        "Email": "za",
+        "Montant": "20000",
+        "Nombre de pieces": "12",
+        "Superficie": "321",
+        "Revenu": "2000",
+        "Depenses": "1200"
     },
     {
-        "Nom du Client": "d",
-        "Prenom du Client": "s",
-        "Adresse": "a",
-        "Email": "z",
-        "Montant": "e",
-        "Nombre de pieces": "t",
-        "Superficie": "r"
+        "Nom du Client": "dsq",
+        "Prenom du Client": "eza",
+        "Adresse": "fds",
+        "Email": "qs",
+        "Montant": "20000",
+        "Nombre de pieces": "12",
+        "Superficie": "32",
+        "Revenu": "2000",
+        "Depenses": "1200"
     },
     {
-        "Nom du Client": "gf",
-        "Prenom du Client": "sef",
-        "Adresse": "re",
-        "Email": "ze",
-        "Montant": "az",
-        "Nombre de pieces": "fd",
-        "Superficie": "sd"
+        "Nom du Client": "dsq",
+        "Prenom du Client": "eaz",
+        "Adresse": "dsq",
+        "Email": "eaz",
+        "Montant": "20000",
+        "Nombre de pieces": "12",
+        "Superficie": "23",
+        "Revenu": "2000",
+        "Depenses": "1500"
     },
     {
-        "Nom du Client": "ds",
-        "Prenom du Client": "zae",
-        "Adresse": "re",
+        "Nom du Client": "dsqd",
+        "Prenom du Client": "eza",
+        "Adresse": "dsq",
+        "Email": "eza",
+        "Montant": "20000",
+        "Nombre de pieces": "12",
+        "Superficie": "23",
+        "Revenu": "2000",
+        "Depenses": "1000"
+    },
+    {
+        "Nom du Client": "dqs",
+        "Prenom du Client": "eza",
+        "Adresse": "dsq",
+        "Email": "ea",
+        "Montant": "200000",
+        "Nombre de pieces": "12",
+        "Superficie": "23",
+        "Revenu": "2000",
+        "Depenses": "1000"
+    },
+    {
+        "Nom du Client": "ttt",
+        "Prenom du Client": "dsq",
+        "Adresse": "eaz",
+        "Email": "eza",
+        "Montant": "200000000",
+        "Nombre de pieces": "12",
+        "Superficie": "200",
+        "Revenu": "2000",
+        "Depenses": "1000"
+    },
+    {
+        "Nom du Client": "ttt",
+        "Prenom du Client": "eaz",
+        "Adresse": "rez",
+        "Email": "aze",
+        "Montant": "109500",
+        "Nombre de pieces": "12",
+        "Superficie": "23",
+        "Revenu": "20",
+        "Depenses": "10"
+    },
+    {
+        "Nom du Client": "ttt",
+        "Prenom du Client": "rez",
+        "Adresse": "78",
+        "Email": "rez",
+        "Montant": "700",
+        "Nombre de pieces": "2",
+        "Superficie": "454",
+        "Revenu": "10",
+        "Depenses": "5"
+    },
+    {
+        "Nom du Client": "ttt",
+        "Prenom du Client": "rez",
+        "Adresse": "78",
         "Email": "ez",
-        "Montant": "az",
-        "Nombre de pieces": "ds",
-        "Superficie": "ds"
+        "Montant": "700",
+        "Nombre de pieces": "2",
+        "Superficie": "rez",
+        "Revenu": "20",
+        "Depenses": "10"
+    },
+    {
+        "Nom du Client": "ttt",
+        "Prenom du Client": "dsd",
+        "Adresse": "78",
+        "Email": "rez",
+        "Montant": "109500",
+        "Nombre de pieces": "2",
+        "Superficie": "25",
+        "Revenu": "20",
+        "Depenses": "10"
+    },
+    {
+        "Nom du Client": "ttt",
+        "Prenom du Client": "dsd",
+        "Adresse": "78",
+        "Email": "re",
+        "Montant": "109500",
+        "Nombre de pieces": "2",
+        "Superficie": "25",
+        "Revenu": "20",
+        "Depenses": "10"
     }
 ]

@@ -1,0 +1,22 @@
+[
+    {
+        "Nom du Client": "ttt",
+        "Prenom du Client": "yt",
+        "Adresse": "75",
+        "Email": "ty",
+        "Solde": 5000,
+        "Dete": [2000, 100]
+
+    },
+
+    {
+        "Nom du Client": "yacine",
+        "Prenom du Client": "M",
+        "Adresse": "78",
+        "Email": "my",
+        "Solde": 10000,
+        "Dete": []
+
+    }
+   
+]

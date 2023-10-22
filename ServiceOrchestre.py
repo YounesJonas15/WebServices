@@ -11,17 +11,17 @@ class ServiceOrchestration(ServiceBase):
     def Orchestration(ctx):
         #Extraction des information
         extractionDonneClientService_client = Client('http://localhost:8002/ServiceExtractionClient?wsdl')
-        nom, prenom, adresse, email, montant, nombre_piece, superfecie = extractionDonneClientService_client.service.Extraction_donne_client()
+        nom, prenom, adresse, email, montant, nombre_piece, superfecie, revenu, depenses = extractionDonneClientService_client.service.Extraction_donne_client()
         print(nom[1])
         print(prenom[1])
         # Service de solvabilite
         solvabilite_calcul = Client('http://localhost:8003/ServiceSolvabilite?wsdl')
-        solvabilite_score = solvabilite_calcul.service.solvabiliteClient(nom[1], prenom[1], email[1])
+        solvabilite_score = solvabilite_calcul.service.solvabiliteClient(nom[1], prenom[1], email[1], montant[1], revenu[1], depenses[1])
         print(solvabilite_score)
 
         # Service de propriete
         propriete_calcul = Client('http://localhost:8004/ServicePropriete?wsdl')
-        propriete_score = propriete_calcul.service.proprieteClient(nombre_piece[1], superfecie[1])
+        propriete_score = propriete_calcul.service.proprieteClient(nombre_piece[1], superfecie[1],adresse[1],montant[1])
         print(propriete_score)
         decisionService = Client('http://localhost:8005/ServiceDecision?wsdl')
         finalDecision = decisionService.service.decisionClient(solvabilite_score, propriete_score)

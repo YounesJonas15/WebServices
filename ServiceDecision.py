@@ -8,12 +8,10 @@ from suds.client import Client
 
 
 class ServiceDecision(ServiceBase):
-    @rpc( float, float, _returns=bool)
+    @rpc( bool, bool, _returns=bool)
     def decisionClient(ctx, solvabilite, priorite):
-        if (solvabilite + priorite < 100):
-            return True
-        else: 
-            return False
+        return solvabilite and priorite 
+           
     
 application = Application([ServiceDecision],
                           tns='spyne.examples.decision',

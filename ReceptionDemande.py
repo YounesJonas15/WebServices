@@ -10,9 +10,9 @@ from spyne.util.wsgi_wrapper import run_twisted
 from suds.client import Client
 
 class DemandeService(ServiceBase):
-    @rpc(Unicode, Unicode, Unicode, Unicode, Unicode, Unicode, Unicode, _returns=Unicode)
+    @rpc(Unicode, Unicode, Unicode, Unicode, Unicode, Unicode, Unicode,Unicode, Unicode, _returns=Unicode)
     def recevoir_demande(
-        ctx, nom, prenom, adresse, email, montant, nombre_piece, superficie
+        ctx, nom, prenom, adresse, email, montant, nombre_piece, superficie, revenu, depenses
     ):
         demande_data = {
             "Nom du Client": nom,
@@ -21,7 +21,9 @@ class DemandeService(ServiceBase):
             "Email": email,
             "Montant": montant,
             "Nombre de pieces": nombre_piece,
-            "Superficie": superficie
+            "Superficie": superficie,
+            "Revenu" : revenu,
+            "Depenses" : depenses
         }
         all_demandes = []
         try:
