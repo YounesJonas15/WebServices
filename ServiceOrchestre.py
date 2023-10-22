@@ -9,16 +9,27 @@ from suds.client import Client
 class ServiceOrchestration(ServiceBase):
     @rpc(_returns=str)
     def Orchestration(ctx):
+        #Extraction des information
         extractionDonneClientService_client = Client('http://localhost:8002/ServiceExtractionClient?wsdl')
-        temp = extractionDonneClientService_client.service.Extraction_donne_client()
-        result = temp[0]
+        nom, prenom, adresse, email, montant, nombre_piece, superfecie = extractionDonneClientService_client.service.Extraction_donne_client()
+        print(nom[1])
+        print(prenom[1])
+        # Service de solvabilite
+        solvabilite_calcul = Client('http://localhost:8003/ServiceSolvabilite?wsdl')
+        solvabilite_score = solvabilite_calcul.service.solvabiliteClient(nom[1], prenom[1], email[1])
+        print(solvabilite_score)
+
+        # Service de propriete
+        propriete_calcul = Client('http://localhost:8004/ServicePropriete?wsdl')
+        propriete_score = propriete_calcul.service.proprieteClient(nombre_piece[1], superfecie[1])
+        print(propriete_score)
         decisionService = Client('http://localhost:8005/ServiceDecision?wsdl')
-        finalDecision = decisionService.service.decisionClient(result[0], result[1])
+        finalDecision = decisionService.service.decisionClient(solvabilite_score, propriete_score)
         if (finalDecision):
             return ("Vous avez eu le pret")
         else:
             return ("Vous n'avez pas eu le pret")
-
+        
         
         
     
