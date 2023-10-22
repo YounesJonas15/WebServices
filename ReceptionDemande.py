@@ -7,7 +7,6 @@ from spyne import Application, rpc, ServiceBase, Unicode
 from spyne.protocol.soap import Soap11
 from spyne.server.wsgi import WsgiApplication
 from spyne.util.wsgi_wrapper import run_twisted
-from Listener import listener
 from suds.client import Client
 
 class DemandeService(ServiceBase):
@@ -37,11 +36,10 @@ class DemandeService(ServiceBase):
         with open("demandes.json", "w") as f:
             json.dump(all_demandes, f, indent=4)
 
-
+        #Appel service orchestre
         orchestre_Reception = Client('http://localhost:8001/ServiceOrchestration?wsdl')
-        result = orchestre_Reception.service.Extraction_nom_client()
-        print(result)
-        return "Demande reçue et enregistrée avec succès."
+        result = orchestre_Reception.service.Orchestration()
+        return result
     
 application = Application([DemandeService],
                           tns='spyne.examples.Reception',

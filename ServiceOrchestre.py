@@ -4,26 +4,21 @@ from spyne import Application, rpc, ServiceBase, Unicode
 from spyne.protocol.soap import Soap11
 from spyne.server.wsgi import WsgiApplication
 from spyne.util.wsgi_wrapper import run_twisted
+from suds.client import Client
 
 class ServiceOrchestration(ServiceBase):
     @rpc(_returns=str)
-    def Extraction_nom_client(ctx):
-        try:
-            # Lire les données depuis le fichier JSON
-            with open("demandes.json", "r") as f:
-                data = json.load(f)
+    def Orchestration(ctx):
+        extractionDonneClientService_client = Client('http://localhost:8002/ServiceExtractionClient?wsdl')
+        temp = extractionDonneClientService_client.service.Extraction_donne_client()
+        result = temp[0]
+        decisionService = Client('http://localhost:8005/ServiceDecision?wsdl')
+        finalDecision = decisionService.service.decisionClient(result[0], result[1])
+        if (finalDecision):
+            return ("Vous avez eu le pret")
+        else:
+            return ("Vous n'avez pas eu le pret")
 
-            # Vérifier s'il y a des demandes dans le fichier
-            if data:
-                # Récupérer la dernière demande
-                last_demande = data[-1] 
-                print(last_demande) 
-                return "Dernière demande lue avec succès depuis le fichier JSON."
-            else:
-                return "Aucune demande trouvée dans le fichier JSON."
-
-        except (json.JSONDecodeError, FileNotFoundError) as e:
-            return f"Erreur lors de la lecture du fichier : {str(e)}"
         
         
     
