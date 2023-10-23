@@ -1,17 +1,24 @@
 import os
 import time
+from suds.client import Client
 
 def listener(path):
     dirs = os.listdir(path)
-    before = dict([(f, None) for f in dirs])  # Contenu du dossier au démarrage
+    before = set(dirs)
     while True:
-        time.sleep(10) 
+        time.sleep(10)
+        after = set(os.listdir(path))
+        added = after - before
+        if added:
+            for file_name in added:
+                print(file_name)
+                
+                fichier_ajoute = path + "/" + file_name
+                # Appel du service d'orchestration
+                orchestre_Reception = Client('http://localhost:8001/ServiceOrchestration?wsdl')
+                result = orchestre_Reception.service.Orchestration(fichier_ajoute)
+                #print(result)
+        before = after
 
-        after = dict([(f, None) for f in os.listdir(path)]) 
+listener("demandes")
 
-        added = [f for f in after if not f in before]  # Liste des fichiers ajoutés depuis le dernier check
-
-        if added:  # Si des fichiers ont été ajoutés
-            print(f"Les fichiers suivants ont été ajoutés : {', '.join(added)}")
-
-        before = after  # Mettre à jour le contenu précédent pour le prochain check

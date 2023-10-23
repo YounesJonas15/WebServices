@@ -7,23 +7,22 @@ from spyne.util.wsgi_wrapper import run_twisted
 from suds.client import Client
 
 class ServiceExtraction(ServiceBase):
-    @rpc(_returns=(Unicode, Unicode, Unicode, Unicode, float, Unicode, Unicode, Unicode, Unicode))
-    def Extraction_donne_client(ctx):
+    @rpc(Unicode,_returns=(Unicode, Unicode, Unicode, Unicode, float, Unicode, Unicode, Unicode, Unicode))
+    def Extraction_donne_client(ctx,file_name):
         try:
             # Lire les données depuis le fichier JSON
-            with open("demandes.json", "r") as f:
+            with open(file_name, "r") as f:
                 data = json.load(f)
 
             # Vérifier s'il y a des demandes dans le fichier
             if data:
-                # Récupérer la dernière demande
-                last_demande = data[-1] 
-                print(last_demande) 
-                return last_demande["Nom du Client"], last_demande["Prenom du Client"], last_demande["Adresse"], last_demande["Email"],float(last_demande["Montant"]), last_demande["Nombre de pieces"], last_demande["Superficie"],  last_demande["Revenu"], last_demande["Depenses"]
+
+                print(data) 
+                return data["Nom du Client"], data["Prenom du Client"], data["Adresse"], data["Email"],float(data["Montant"]), data["Nombre de pieces"], data["Superficie"],  data["Revenu"], data["Depenses"]
                 
 
             else:
-                return "Aucune demande trouvée dans le fichier JSON."
+                return "Aucune demande de nom trouvée ."
         except (json.JSONDecodeError, FileNotFoundError) as e:
             return f"Erreur lors de la lecture du fichier : {str(e)}"
         

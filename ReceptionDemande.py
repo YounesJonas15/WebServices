@@ -25,24 +25,17 @@ class DemandeService(ServiceBase):
             "Revenu" : revenu,
             "Depenses" : depenses
         }
-        all_demandes = []
-        try:
-            with open("demandes.json", "r") as f:
-                all_demandes = json.load(f)
-        except (json.JSONDecodeError, FileNotFoundError):
-            pass
-        
-        all_demandes.append(demande_data)
-        
+        file_name = f"{nom+prenom}.json"  
+        file_path = os.path.join("demandes", file_name) 
 
-        with open("demandes.json", "w") as f:
-            json.dump(all_demandes, f, indent=4)
-
+        with open(file_path, "w") as f:
+            json.dump(demande_data, f, indent=4)
+        """
         #Appel service orchestre
         orchestre_Reception = Client('http://localhost:8001/ServiceOrchestration?wsdl')
         result = orchestre_Reception.service.Orchestration()
         return result
-    
+        """
 application = Application([DemandeService],
                           tns='spyne.examples.Reception',
                           in_protocol=Soap11(validator='lxml'),
