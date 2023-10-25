@@ -8,29 +8,25 @@ from suds.client import Client
 
 
 class ServicePropriete(ServiceBase):
-    @rpc( Unicode, Unicode,Unicode,float, _returns=bool)
-    def proprieteClient(ctx, nb_piece, superfecie, adresse,montant):
+    @rpc(Unicode, Unicode, float, Unicode, _returns=float)
+    def proprieteClient(ctx, nb_piece, ville, montant, type):
         try:
             with open("ventes_recentes.json", "r") as f:
                 data = json.load(f)
-                print(data)
-                print(nb_piece,adresse,montant)
-            if data:
-                for vente in data:
-                    if vente["Adresse"] == adresse and vente["nombre_piece"] == int(nb_piece):
-                        prix = float(vente.get("prix"))
-                        print(prix)
-                        if montant <= prix :
-                            return True
-                        elif montant > prix :
-                            return False
-                      
-
-            else:
-                return "Aucune ventes recentes à proximité de cette adresse"
-            
+                if data:
+                    for vente in data:
+                        if vente["Ville"] == ville and vente["nombre_piece"]== int(nb_piece) and vente["type"] == type :
+                            prix = float(vente.get("prix"))
+                            score = montant / prix   # Score basé sur le prix par rapport au prix moyen
+                            score = 1 / score
+                            return min(1,score)
+                    return 0.5  # Aucune vente récente trouvée correspondant aux critères
+                else:
+                    return 0.5  # Aucune vente récente dans la base de données
         except (json.JSONDecodeError, FileNotFoundError) as e:
-            return f"Erreur lors de la lecture du fichier : {str(e)}"
+            print(f"Erreur lors de la lecture du fichier : {str(e)}")
+            return -1  # Erreur lors de la lecture du fichier
+
     
 application = Application([ServicePropriete],
                           tns='spyne.examples.propriete',

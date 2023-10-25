@@ -8,8 +8,12 @@ from suds.client import Client
 
 
 class ServiceSolvabilite(ServiceBase):
-    @rpc( Unicode, Unicode, Unicode,Unicode,Unicode,Unicode, _returns=float)
-    def solvabiliteClient(ctx, nom, prénom, email, montant, revenu, depenses):
+    @rpc( Unicode, Unicode, Unicode,Unicode, _returns=float)
+    def solvabiliteClient(ctx,email, montant, revenu, depenses):
+        montant = float(montant)
+        revenu = float(revenu)
+        depenses = float(depenses)
+
         list_client = []
         result_tuple = {}
         try:
@@ -32,8 +36,13 @@ class ServiceSolvabilite(ServiceBase):
         if dettes == 0:
             return -1
         else:
-            return (float(montant) + float(dettes)) / ((float(revenu) - float(depenses)) * 365) * 100 / 30
-
+            ratio_dettes_montant_pret = dettes / montant if montant != 0 else 0
+            ratio_depenses_revenu = depenses / revenu if revenu != 0 else 0
+            score = (revenu - depenses)*12 / montant
+            if ratio_dettes_montant_pret > 0.3 or ratio_depenses_revenu > 0.5:
+            # Pénalité si le ratio dettes/montant_pret ou dépenses/revenu dépasse des seuils critiques
+                score *= 0.7
+        return score
 
 
 application = Application([ServiceSolvabilite],

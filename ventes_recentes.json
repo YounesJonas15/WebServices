@@ -15,8 +15,8 @@
     {"Ville": "Clermont-Ferrand", "type": "maison", "nombre_piece": 5, "prix": 260000},
     {"Ville": "Brest", "type": "appartement", "nombre_piece": 2, "prix": 100000},
     {"Ville": "Le Mans", "type": "maison", "nombre_piece": 4, "prix": 180000},
-    {"Ville": "Amiens", "type": "appartement", "nombre_piece": 3, "prix": 135000},
-    {"Ville": "Aix-en-Provence", "type": "maison", "nombre_piece": 6, "prix": 380000},
+    {"Ville": "Lyon", "type": "appartement", "nombre_piece": 3, "prix": 135000},
+    {"Ville": "Marseille", "type": "maison", "nombre_piece": 6, "prix": 380000},
     {"Ville": "Limoges", "type": "appartement", "nombre_piece": 1, "prix": 75000},
     {"Ville": "Tours", "type": "maison", "nombre_piece": 5, "prix": 300000}
 ]

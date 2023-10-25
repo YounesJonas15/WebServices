@@ -7,7 +7,7 @@ from spyne.util.wsgi_wrapper import run_twisted
 from suds.client import Client
 
 class ServiceExtraction(ServiceBase):
-    @rpc(Unicode,_returns=(Unicode, Unicode, Unicode, Unicode, float, Unicode, Unicode, Unicode, Unicode))
+    @rpc(Unicode,_returns=(Unicode, Unicode, Unicode, Unicode, Unicode ,float, Unicode, Unicode, Unicode))
     def Extraction_donne_client(ctx,file_name):
         try:
             # Lire les données depuis le fichier JSON
@@ -18,7 +18,7 @@ class ServiceExtraction(ServiceBase):
             if data:
 
                 print(data) 
-                return data["Nom du Client"], data["Prenom du Client"], data["Adresse"], data["Email"],float(data["Montant"]), data["Nombre de pieces"], data["Superficie"],  data["Revenu"], data["Depenses"]
+                return data["Nom du Client"], data["Prenom du Client"], data["Ville"], data["Email"],data["Type"],float(data["Montant"]), data["Nombre de pieces"], data["Revenu"], data["Depenses"]
                 
 
             else:

@@ -8,9 +8,12 @@ from suds.client import Client
 
 
 class ServiceDecision(ServiceBase):
-    @rpc( bool, bool, _returns=bool)
+    @rpc( float, float, _returns=bool)
     def decisionClient(ctx, solvabilite, priorite):
-        return solvabilite and priorite 
+        if (solvabilite + priorite)/2 >= 0.5:
+            return True
+        else : 
+            return False
            
     
 application = Application([ServiceDecision],

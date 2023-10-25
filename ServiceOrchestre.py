@@ -9,24 +9,23 @@ from suds.client import Client
 class ServiceOrchestration(ServiceBase):
     @rpc(Unicode,_returns=str)
     def Orchestration(ctx,file_name):
-        print("jai recu", {file_name})
         #Extraction des information
 
         extractionDonneClientService_client = Client('http://localhost:8002/ServiceExtractionClient?wsdl')
-        nom, prenom, adresse, email, montant, nombre_piece, superfecie, revenu, depenses = extractionDonneClientService_client.service.Extraction_donne_client(file_name)
+        nom, prenom, ville, email,type, montant, nombre_piece, revenu, depenses = extractionDonneClientService_client.service.Extraction_donne_client(file_name)
         print(nom[1])
         print(prenom[1])
 
         # Service de solvabilite
         solvabilite_calcul = Client('http://localhost:8003/ServiceSolvabilite?wsdl')
-        solvabilite_score = solvabilite_calcul.service.solvabiliteClient(nom[1], prenom[1], email[1], montant[1], revenu[1], depenses[1])
+        solvabilite_score = solvabilite_calcul.service.solvabiliteClient( email[1], montant[1], revenu[1], depenses[1])
         if solvabilite_score == -1:
             return("Vous n'êtes pas enregistré dans la banque.")
         else:
             print(solvabilite_score)
         # Service de propriete
         propriete_calcul = Client('http://localhost:8004/ServicePropriete?wsdl')
-        propriete_score = propriete_calcul.service.proprieteClient(nombre_piece[1], superfecie[1],adresse[1],montant[1])
+        propriete_score = propriete_calcul.service.proprieteClient(nombre_piece[1],ville[1],montant[1],type[1])
         print(propriete_score)
         decisionService = Client('http://localhost:8005/ServiceDecision?wsdl')
         finalDecision = decisionService.service.decisionClient(solvabilite_score, propriete_score)
