@@ -9,7 +9,7 @@ from suds.client import Client
 
 class ServicePropriete(ServiceBase):
     @rpc( Unicode, Unicode,Unicode,float, _returns=bool)
-    def proprieteClient(ctx, nb_piece, superficie, adresse,montant):
+    def proprieteClient(ctx, nb_piece, superfecie, adresse,montant):
         try:
             with open("ventes_recentes.json", "r") as f:
                 data = json.load(f)
@@ -24,8 +24,7 @@ class ServicePropriete(ServiceBase):
                             return True
                         elif montant > prix :
                             return False
-                    else :
-                        print("aucun match")    
+                      
 
             else:
                 return "Aucune ventes recentes à proximité de cette adresse"

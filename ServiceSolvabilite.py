@@ -8,29 +8,34 @@ from suds.client import Client
 
 
 class ServiceSolvabilite(ServiceBase):
-    @rpc( Unicode, Unicode, Unicode,Unicode,Unicode,Unicode, _returns=bool)
+    @rpc( Unicode, Unicode, Unicode,Unicode,Unicode,Unicode, _returns=float)
     def solvabiliteClient(ctx, nom, prénom, email, montant, revenu, depenses):
-        all_demandes = []
+        list_client = []
         result_tuple = {}
         try:
             with open("banque.json", "r") as f:
-                all_demandes = json.load(f)
+                list_client = json.load(f)
         except (json.JSONDecodeError, FileNotFoundError):
             pass
 
         
-        for demande_data in all_demandes:
-            if demande_data["Nom du Client"] == nom:
-            # Récupérer le tuple (nom, prenom, email) correspondant
-                result_tuple = demande_data
-        
-        dettes = sum(result_tuple["Dete"]) 
-                   
-        if (((float(montant) + float(dettes))/((float(revenu) - float(depenses))*365) * 100)/30) < 110:
-            return True
+        dettes = 0  
+
+        for client in list_client:
+            if client["Email"] == email:
+                # Récupérer le tuple (nom, prénom, email) correspondant
+                result_tuple = client
+                dettes = sum(result_tuple["Dete"])
+                break
+
+        # Si le client n'est pas trouvé, retourner -1, sinon effectuer le calcul et retourner le résultat
+        if dettes == 0:
+            return -1
         else:
-            return False
-    
+            return (float(montant) + float(dettes)) / ((float(revenu) - float(depenses)) * 365) * 100 / 30
+
+
+
 application = Application([ServiceSolvabilite],
                           tns='spyne.examples.solvabilite',
                           in_protocol=Soap11(validator='lxml'),
