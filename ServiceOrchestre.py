@@ -52,10 +52,10 @@ class ServiceOrchestration(ServiceBase):
         email_sender = 'yassinesoatp@gmail.com'
         email_password = 'ibyk omnw lzuh ytir'
 
-        email_recever = 'yacine696969@gmail.com'
+        email_recever = email[1]
 
         subject = "Décision final pour votre demande"
-        body = "test"
+        body = resultat_data["Reponse"]
 
         em = EmailMessage()
         em['From'] = email_sender
