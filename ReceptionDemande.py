@@ -30,12 +30,7 @@ class DemandeService(ServiceBase):
 
         with open(file_path, "w") as f:
             json.dump(demande_data, f, indent=4)
-        """
-        #Appel service orchestre
-        orchestre_Reception = Client('http://localhost:8001/ServiceOrchestration?wsdl')
-        result = orchestre_Reception.service.Orchestration()
-        return result
-        """
+
 application = Application([DemandeService],
                           tns='spyne.examples.Reception',
                           in_protocol=Soap11(validator='lxml'),

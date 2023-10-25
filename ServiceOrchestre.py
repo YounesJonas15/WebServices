@@ -1,4 +1,5 @@
 import json
+import os
 import sys
 from spyne import Application, rpc, ServiceBase, Unicode
 from spyne.protocol.soap import Soap11
@@ -29,12 +30,19 @@ class ServiceOrchestration(ServiceBase):
         print(propriete_score)
         decisionService = Client('http://localhost:8005/ServiceDecision?wsdl')
         finalDecision = decisionService.service.decisionClient(solvabilite_score, propriete_score)
-        if (finalDecision):
-            print("vous avez le pret")
-            return ("Vous avez eu le pret")
-        else:
-            print("vous n'avez pas ")
-            return ("Vous n'avez pas eu le pret")
+        
+        file_name = f"{nom[1]+prenom[1]}.json"  
+        file_path = os.path.join("ResultatDemandes", file_name) 
+
+        resultat_data = {
+            "Nom du Client": nom[1],
+            "Prenom du Client": prenom[1],
+            "Email" : email[1],
+            "Reponse": "Pret accorde" if finalDecision else "Pret refuse"
+        }
+
+        with open(file_path, "w") as f:
+            json.dump(resultat_data, f, indent=4)
         
         
         
