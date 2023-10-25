@@ -6,6 +6,9 @@ from spyne.protocol.soap import Soap11
 from spyne.server.wsgi import WsgiApplication
 from spyne.util.wsgi_wrapper import run_twisted
 from suds.client import Client
+from email.message import EmailMessage
+import smtplib 
+import ssl
 
 class ServiceOrchestration(ServiceBase):
     @rpc(Unicode,_returns=str)
@@ -31,6 +34,7 @@ class ServiceOrchestration(ServiceBase):
         decisionService = Client('http://localhost:8005/ServiceDecision?wsdl')
         finalDecision = decisionService.service.decisionClient(solvabilite_score, propriete_score)
         
+        #ebregistrement de la décision
         file_name = f"{nom[1]+prenom[1]}.json"  
         file_path = os.path.join("ResultatDemandes", file_name) 
 
@@ -43,6 +47,30 @@ class ServiceOrchestration(ServiceBase):
 
         with open(file_path, "w") as f:
             json.dump(resultat_data, f, indent=4)
+        
+        #Envoie du mail
+        email_sender = 'yassinesoatp@gmail.com'
+        email_password = 'ibyk omnw lzuh ytir'
+
+        email_recever = 'yacine696969@gmail.com'
+
+        subject = "Décision final pour votre demande"
+        body = "test"
+
+        em = EmailMessage()
+        em['From'] = email_sender
+        em['To'] = email_recever
+        em['subject'] = subject
+        em.set_content(body)
+
+        context = ssl.create_default_context()
+
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
+            smtp.login(email_sender, email_password)
+            smtp.sendmail(email_sender, email_recever, em.as_string())
+        
+        
+
         
         
         
