@@ -6,7 +6,6 @@ def listener(path):
     dirs = os.listdir(path)
     before = set(dirs)
     while True:
-        time.sleep(10)
         after = set(os.listdir(path))
         added = after - before
         if added:

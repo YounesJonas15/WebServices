@@ -55,8 +55,11 @@ class ServiceOrchestration(ServiceBase):
         email_recever = email[1]
 
         subject = "Décision final pour votre demande"
-        body = resultat_data["Reponse"]
-
+        if(finalDecision):
+            body ="Nous avons le plaisir de vous informer que votre demande de pret immobilier a été accordée "
+        else :
+            body = "Nous avons le regret de vous informer que votre demande de pret immobilier a été refusé"
+            
         em = EmailMessage()
         em['From'] = email_sender
         em['To'] = email_recever
